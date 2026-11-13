@@ -26,7 +26,11 @@
     }
 
     main {
-      width: min(100%, 46rem);
+      width: min(100%, 58rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 16rem);
+      gap: 1.75rem clamp(1.5rem, 5vw, 3rem);
+      align-items: center;
       padding: clamp(1.5rem, 6vw, 4rem);
       background: #0d1d31;
       border: 1px solid #335374;
@@ -49,20 +53,49 @@
       line-height: 1.65;
     }
 
+    .intro {
+      margin: 0;
+      width: min(100%, 16rem);
+      justify-self: center;
+    }
+
+    .intro video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      border: 1px solid #335374;
+      border-radius: 1rem;
+    }
+
     footer {
-      margin-top: 2.25rem;
+      grid-column: 1 / -1;
       padding-top: 1.25rem;
       border-top: 1px solid #335374;
     }
 
     footer p { margin: 0; font-size: 1rem; }
     a { color: #9dd4ff; overflow-wrap: anywhere; }
+
+    @media (max-width: 40rem) {
+      main { grid-template-columns: minmax(0, 1fr); }
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>Atomic Launcher 3D</h1>
-    <p>Atomic Launcher 3D is an Android launcher with 3D home screen navigation, customizable tabs, and widgets for the clock, weather, calendar, and notes.</p>
+    <header>
+      <h1>Atomic Launcher 3D</h1>
+      <p>Atomic Launcher 3D is an Android launcher with 3D home screen navigation, customizable tabs, and widgets for the clock, weather, calendar, and notes.</p>
+    </header>
+    <figure class="intro">
+      <video controls playsinline preload="none" width="1080" height="1920"
+             poster="atomic-intro-poster.webp" aria-label="Atomic Launcher 3D intro animation">
+        <source src="atomic-intro.mp4" type="video/mp4">
+        <a href="atomic-intro.mp4">Watch the Atomic Launcher 3D intro animation</a>
+      </video>
+    </figure>
     <footer>
       <p>Published by Softinženjering.</p>
       <p>For support, email <a href="mailto:atomiclauncher3d@gmail.com">atomiclauncher3d@gmail.com</a>.</p>
@@ -70,4 +103,3 @@
   </main>
 </body>
 </html>
-
